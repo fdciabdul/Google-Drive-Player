@@ -17,10 +17,10 @@ function App() {
     const docId = inputUrl.split('/').pop();
 
     try {
-      const response = await axios.get(`http://localhost:8080/?url=${docId}`);
+      const response = await axios.get(`https://google-drive-player-production.up.railway.app/?url=${docId}`);
       const data = response.data;
-      setVideoSrc("http://localhost:8080/proxy-video/"+data.uniqueId);
-      setThumbnailSrc("http://localhost:8080/proxy-thumbnail/"+data.uniqueId);
+      setVideoSrc("https://google-drive-player-production.up.railway.app/proxy-video/"+data.uniqueId);
+      setThumbnailSrc("https://google-drive-player-production.up.railway.app/proxy-thumbnail/"+data.uniqueId);
     } catch (error) {
       console.error("Error fetching data from API server: ", error);
     }

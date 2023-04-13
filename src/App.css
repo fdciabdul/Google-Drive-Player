@@ -77,6 +77,22 @@ img {
   width: 100%;
   gap: 16px;
 }
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.video-wrapper iframe, .video-wrapper object, .video-wrapper embed, .video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .panel {
   background-color: white;

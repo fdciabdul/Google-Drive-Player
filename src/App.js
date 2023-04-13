@@ -91,7 +91,9 @@ function App() {
           <>
             <div className="panel video-panel">
               <h2>Video</h2>
-              <ReactPlayer url={videoSrc} controls />
+              <div className="video-wrapper">
+                 <ReactPlayer url={videoSrc} controls />
+              </div>
               <textarea readOnly value={videoSrc} />
             </div>
             <div className="panel thumbnail-panel">

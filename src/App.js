@@ -38,8 +38,17 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    const regex = /\/file\/d\/([a-zA-Z0-9_-]+)\//;
-    const match = inputUrl.match(regex);
+    // Multiple regex patterns to match different Google Drive URL formats
+    const regexPatterns = [
+      /\/file\/d\/([a-zA-Z0-9_-]+)\//,
+      /\/open\?id=([a-zA-Z0-9_-]+)/,
+      /^([a-zA-Z0-9_-]+)$/, // This pattern matches input containing only the media ID
+    ];
+  
+    // Find a match using any of the regex patterns
+    const match = regexPatterns.reduce((foundMatch, pattern) => {
+      return foundMatch || inputUrl.match(pattern);
+    }, null);
   
     if (!match || !match[1]) {
       showToastError("Invalid URL. Please provide a valid Google Drive URL.");
@@ -49,8 +58,9 @@ function App() {
     const docId = match[1];
   
     try {
-      showToastSuccess("Fetching data from API server...");
+    
       const response = await axios.get(`https://google-drive-player-production.up.railway.app/?url=${docId}`);
+      showToastSuccess("Fetching data from API server...");
       const data = response.data;
       setVideoSrc(`https://google-drive-player-production.up.railway.app/proxy-video/${data.uniqueId}`);
       setThumbnailSrc(`https://google-drive-player-production.up.railway.app/proxy-thumbnail/${data.uniqueId}`);
@@ -58,6 +68,7 @@ function App() {
       showToastError("Error fetching data from API server: ", error);
     }
   };
+  
   
   
 

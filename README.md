@@ -6,6 +6,8 @@
 
 https://google-drive-player.netlify.app/
 
+use sample media id `1k5Lj4d98thS-LNtJGciRSLA7md7YB2ku`
+
 # Backend
 
 https://github.com/fdciabdul/Google-Drive-Player-Backed

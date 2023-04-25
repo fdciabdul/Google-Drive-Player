@@ -59,11 +59,11 @@ function App() {
   
     try {
     
-      const response = await axios.get(`https://google-drive-player-production.up.railway.app/?url=${docId}`);
+      const response = await axios.get(`https://google-drive-player-backed.fdciabdul.repl.co/?url=${docId}`);
       showToastSuccess("Fetching data from API server...");
       const data = response.data;
-      setVideoSrc(`https://google-drive-player-production.up.railway.app/proxy-video/${data.uniqueId}`);
-      setThumbnailSrc(`https://google-drive-player-production.up.railway.app/proxy-thumbnail/${data.uniqueId}`);
+      setVideoSrc(`https://google-drive-player-backed.fdciabdul.repl.co/proxy-video/${data.uniqueId}`);
+      setThumbnailSrc(`https://google-drive-player-backed.fdciabdul.repl.co/proxy-thumbnail/${data.uniqueId}`);
     } catch (error) {
       showToastError("Error fetching data from API server: ", error);
     }

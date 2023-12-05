@@ -59,11 +59,11 @@ function App() {
   
     try {
     
-      const response = await axios.get(`https://google-drive-player-backed.fdciabdul.repl.co/?url=${docId}`);
+      const response = await axios.get(`https://gdrive.demo.imtaqin.id/?url=${docId}`);
       showToastSuccess("Fetching data from API server...");
       const data = response.data;
-      setVideoSrc(`https://google-drive-player-backed.fdciabdul.repl.co/proxy-video/${data.uniqueId}`);
-      setThumbnailSrc(`https://google-drive-player-backed.fdciabdul.repl.co/proxy-thumbnail/${data.uniqueId}`);
+      setVideoSrc(`https://gdrive.demo.imtaqin.id/proxy-video/${data.uniqueId}`);
+      setThumbnailSrc(`https://gdrive.demo.imtaqin.id/proxy-thumbnail/${data.uniqueId}`);
     } catch (error) {
       showToastError("Error fetching data from API server: ", error);
     }
